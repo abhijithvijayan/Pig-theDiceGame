@@ -1,150 +1,191 @@
-@import url('https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700');
+@import url("https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700");
 
 /* RESET */
 
 * {
-    box-sizing: border-box;
-    padding: 0;
-    margin: 0;
-    vertical-align: baseline;
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  vertical-align: baseline;
 }
-html, body {
-    padding: 0;
-    margin: 0;
-    border: 0;
+html,
+body {
+  padding: 0;
+  margin: 0;
+  border: 0;
 }
-ol, ul {
-    list-style: none; 
+ol,
+ul {
+  list-style: none;
 }
 
 /* CONTENT */
 
 body {
-    height: 100vh;
-    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../img/bg-img.jpeg');
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
-    font-family: 'Poppins', sans-serif;
-    line-height: 1;
+  height: 100vh;
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url("../img/bg-img.jpeg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  font-family: "Poppins", sans-serif;
+  line-height: 1;
 }
 .head {
-    padding-top: 20px;
-    padding-bottom: 20px;
+  padding-top: 20px;
+  padding-bottom: 20px;
 }
 .head h2 {
-    color: #fff;    
-    font-weight: 500;
+  color: #fff;
+  font-weight: 500;
 }
 .head a {
-    color: #fff;
+  color: #fff;
 }
 .head a:hover {
-    text-decoration: 2px solid white;
-    color: rgb(240, 229, 229);
+  text-decoration: 2px solid white;
+  color: rgb(240, 229, 229);
 }
 .wrapper {
-    background-color: #fff;
-    color: pink;
-    box-shadow: 0px 10px 50px rgba(0, 0, 0, 0.3);
+  background-color: #fff;
+  color: pink;
+  box-shadow: 0px 10px 50px rgba(0, 0, 0, 0.3);
 }
-.player-0, .player-1 {
-    padding: 75px; 
+.player-0,
+.player-1 {
+  padding: 75px;
 }
 .active {
-    background-color: #f7f7f7;
-    color: rgb(85, 85, 85);
+  background-color: #f7f7f7;
+  color: rgb(85, 85, 85);
 }
 .pName {
-    margin-top: 20px;
-    font-size: 40px;
-    font-weight: 300;
+  margin-top: 20px;
+  font-size: 40px;
+  font-weight: 300;
 }
 .pScore {
-    font-size: 80px;
-    font-weight: 300;
-    margin-bottom: 130px;
+  font-size: 80px;
+  font-weight: 300;
+  margin-bottom: 130px;
 }
-.pCurrent-0, .pCurrent-1 {
-    background-color: pink;
-    width: 25%;
-    padding-top: 10px;
-    padding-bottom: 10px;
+.pCurrent-0,
+.pCurrent-1 {
+  background-color: pink;
+  width: 25%;
+  padding-top: 10px;
+  padding-bottom: 10px;
 }
 .current {
-    background-color: rgb(85, 85, 85);
-    color: #f7f7f7;
+  background-color: rgb(85, 85, 85);
+  color: #f7f7f7;
 }
 .pCurrentScore {
-    color: #f7f7f7;
-    text-transform: uppercase;
+  color: #f7f7f7;
+  text-transform: uppercase;
 }
 .pCurrentVal {
-    color: #fff;
-    font-size: 30px;
+  color: #fff;
+  font-size: 30px;
 }
 .dice {
-    position: absolute;
-    transform: translateX(-50%);
-    bottom: 300px;
-    height: 100px !important;
-    left: 50%;
-    box-shadow: 0px 10px 60px rgba(0, 0, 0, 0.10);
+  position: absolute;
+  transform: translateX(-50%);
+  bottom: 300px;
+  height: 100px !important;
+  left: 50%;
+  box-shadow: 0px 10px 60px rgba(0, 0, 0, 0.1);
 }
 .new-btn {
-    margin-top: 30px !important;
+  margin-top: 30px !important;
 }
 .roll-btn {
-    bottom: 130px;
+  bottom: 130px;
 }
 .hold-btn {
-    bottom: 60px;
+  bottom: 60px;
 }
 button {
-    background: none;
-    color: rgba(85, 85, 85, 0.7);
-    position: absolute;
-    font-size: 25px !important;
-    font-weight: 300 !important;
-    border: none;
-    left: 50%;
-    transform: translateX(-50%);
-    font-size: 20px;
-    text-transform: uppercase !important;
-    cursor: pointer;
-    z-index: 1;
+  background: none;
+  color: rgba(85, 85, 85, 0.7);
+  position: absolute;
+  font-size: 25px !important;
+  font-weight: 300 !important;
+  border: none;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 20px;
+  text-transform: uppercase !important;
+  cursor: pointer;
+  z-index: 1;
 }
 button:hover {
-    color: rgb(85, 85, 85);
+  color: rgb(85, 85, 85);
 }
-.btn:focus, .btn:active {
-    outline: none !important;
-    box-shadow: none !important;
+.btn:focus,
+.btn:active {
+  outline: none !important;
+  box-shadow: none !important;
 }
 #overlay {
-    position: fixed; /* Sit on top of the page content */
-    display: none; /* Hidden by default */
-    width: 100%; /* Full width (cover the whole page) */
-    height: 100%; /* Full height (cover the whole page) */
-    top: 0; 
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: rgba(0,0,0,0.8); /* Black background with opacity */
-    z-index: 2; /* Specify a stack order in case you're using a different order for other elements */
-    cursor: pointer; /* Add a pointer on hover */
+  position: fixed; /* Sit on top of the page content */
+  display: none; /* Hidden by default */
+  width: 100%; /* Full width (cover the whole page) */
+  height: 100%; /* Full height (cover the whole page) */
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.8); /* Black background with opacity */
+  z-index: 2; /* Specify a stack order in case you're using a different order for other elements */
+  cursor: pointer; /* Add a pointer on hover */
 }
 #text {
-    color: #fff;
-    position: relative;
-    font-size: 20px;
-    padding-top: 30vh;
-    line-height: 1.8em;
+  color: #fff;
+  position: relative;
+  font-size: 20px;
+  padding-top: 30vh;
+  line-height: 1.8em;
 }
 #text p {
-    color: #f7f7f7;
-    padding-top: 30px;
+  color: #f7f7f7;
+  padding-top: 30px;
 }
 #text p:hover {
-    text-decoration: underline;
+  text-decoration: underline;
 }
+
+/* ---------------------------------------------- */
+
+@media (min-width: 320px) and (max-width: 480px) {
+  .hold-btn {
+    bottom: 0px;
+    position: relative;
+    margin-top: 10px;
+  }
+  .roll-btn {
+    bottom: 40px;
+  }
+  .new-btn {
+    margin-top: 0px !important;
+  }
+  .dice {
+    bottom: 388px;
+    height: 80px !important;
+  }
+  .pName {
+    margin-top: 0px;
+  }
+  .pScore {
+    margin-bottom: 0;
+  }
+  #text {
+    padding-top: 10vh;
+  }
+  .player-0,
+  .player-1 {
+    padding: 50px;
+  }
+}
+
+/* ---------------------------------------------- */
