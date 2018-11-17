@@ -1,3 +1,5 @@
+### Play Live @ https://abhijithvijayan.github.io/Pig-theDiceGame/
+
 ## GAME RULES:
 
 - The game has 2 players, playing in rounds
