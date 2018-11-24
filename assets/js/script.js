@@ -5,6 +5,8 @@ function init() {
   currentScore = 0;
   currentPlayer = 0;
 
+  // hide dice
+  document.querySelector(".dice").style.display = "none";
   // reset everything
   document.getElementById("pScore-0").textContent = "0";
   document.getElementById("pScore-1").textContent = "0";
@@ -24,12 +26,10 @@ function init() {
   // document.querySelector('#score-' + currentPlayer).innerHTML = "<em>" + dice + "</em";
   // var x = document.querySelector('#score-' + currentPlayer).textContent;
   // console.log(x);
-
+  
   // show buttons
   document.querySelector(".roll-btn").style.display = "block";
   document.querySelector(".hold-btn").style.display = "block";
-  // hide dice
-  document.querySelector(".dice").style.display = "none";
 }
 init();
 
@@ -43,6 +43,8 @@ document.querySelector('.roll-btn').addEventListener('click', btnClick);        
 */
 
 // EVENT LISTENERS
+
+// ROLL BUTTON
 document.querySelector(".roll-btn").addEventListener("click", function() {
   //anonymous fn - that cannot be reused
   // 1. Random Number
@@ -50,8 +52,8 @@ document.querySelector(".roll-btn").addEventListener("click", function() {
 
   // 2. Display
   var diceImg = document.querySelector(".dice");
-  diceImg.style.display = "block";
   diceImg.src = "assets/img/dice-" + diceNum + ".png";
+  diceImg.style.display = "block";
 
   // 3. Update if not 1
   if (diceNum !== 1) {
@@ -64,6 +66,7 @@ document.querySelector(".roll-btn").addEventListener("click", function() {
   }
 });
 
+// HOLD BUTTON
 document.querySelector(".hold-btn").addEventListener("click", function() {
   // 1. Add score to total
   scores[currentPlayer] += currentScore;
@@ -85,6 +88,7 @@ document.querySelector(".hold-btn").addEventListener("click", function() {
   }
 });
 
+// NEW GAME BUTTON
 document.querySelector(".new-btn").addEventListener("click", init); // this will call init()
 
 function playerSwitch() {
@@ -108,6 +112,7 @@ function playerSwitch() {
   document.querySelector(".dice").style.display = "none";
 }
 
+// OVERLAY MENU
 document.querySelector(".overlay").addEventListener("click", overlayON);
 function overlayON() {
   document.getElementById("overlay").style.display = "block";
