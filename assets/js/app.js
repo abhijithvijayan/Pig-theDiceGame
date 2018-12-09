@@ -1,31 +1,54 @@
 var scores, currentPlayer, currentScore;
 
+var updateElement = (id, value) => {
+  document.getElementById(id).textContent = value;
+}
+
+var resetQuery = (id, value) => {
+  document.querySelector(id).textContent = value;
+}
+
+var removeClass = (id, value) => {
+  document.querySelector(id).classList.remove(value);
+}
+
+var addClass = (id, value) => {
+  document.querySelector(id).classList.add(value);
+}
+
+var display = (id, value) => {
+  document.querySelector(id).style.display = value;
+}
+
 // initialization
 var init = () => {
   scores = [0, 0];
   currentScore = 0;
   currentPlayer = 0;
 
-  // hide dice
-  document.querySelector(".dice").style.display = "none";
+  display(".dice", "none");
+  display(".roll-btn", "block");
+  display(".hold-btn", "block");
   // reset everything
-  document.getElementById("pScore-0").textContent = "0";
-  document.getElementById("pScore-1").textContent = "0";
-  document.getElementById("score-0").textContent = "0";
-  document.getElementById("score-1").textContent = "0";
-  document.querySelector("#pName-0").textContent = "PLAYER 1";
-  document.querySelector("#pName-1").textContent = "PLAYER 2";
-  document.querySelector(".player-0").classList.remove("active");
-  document.querySelector(".pCurrent-0").classList.remove("current");
-  document.querySelector(".player-1").classList.remove("active");
-  document.querySelector(".pCurrent-1").classList.remove("current");
+
+  updateElement("pScore-0", "0");
+  updateElement("pScore-1", "0");
+  updateElement("score-0", "0");
+  updateElement("score-1", "0");
+
+  resetQuery("#pName-0", "PLAYER 1");
+  resetQuery("#pName-1", "PLAYER 2");
+
+  removeClass(".player-0", "active");
+  removeClass(".pCurrent-0", "current");
+  removeClass(".player-1", "active");
+  removeClass(".pCurrent-1", "current");
+
   //setting 1st player as active player
-  document.querySelector(".player-0").classList.add("active");
-  document.querySelector(".pCurrent-0").classList.add("current");
-  // show buttons
-  document.querySelector(".roll-btn").style.display = "block";
-  document.querySelector(".hold-btn").style.display = "block";
+  addClass(".player-0", "active");
+  addClass(".pCurrent-0", "current");
 }
+
 init();
 
 // EVENT LISTENERS
@@ -35,7 +58,6 @@ document.querySelector(".new-btn").addEventListener("click", init); // this will
 
 // 2. ROLL BUTTON
 document.querySelector(".roll-btn").addEventListener("click", () => {
-  //anonymous fn - that cannot be reused
   // 1. Random Number
   var diceNum = Math.floor(Math.random() * 6 + 1);
 
@@ -47,10 +69,9 @@ document.querySelector(".roll-btn").addEventListener("click", () => {
   // 3. Update if not 1
   if (diceNum !== 1) {
     currentScore += diceNum;
-    document.getElementById(
-      "score-" + currentPlayer
-    ).textContent = currentScore;
-  } else {
+    document.getElementById("score-" + currentPlayer).textContent = currentScore;
+  } 
+  else {
     playerSwitch();
   }
 });
@@ -61,16 +82,15 @@ document.querySelector(".hold-btn").addEventListener("click", () => {
   scores[currentPlayer] += currentScore;
 
   // 2. Update
-  document.getElementById("pScore-" + currentPlayer).textContent =
-    scores[currentPlayer];
+  document.getElementById("pScore-" + currentPlayer).textContent = scores[currentPlayer];
 
   // 3. Check if player won
   if (scores[currentPlayer] >= 100) {
     document.querySelector("#pName-" + currentPlayer).textContent = "WINNER";
     // hide dice, roll button, hold button
-    document.querySelector(".dice").style.display = "none";
-    document.querySelector(".roll-btn").style.display = "none";
-    document.querySelector(".hold-btn").style.display = "none";
+    display(".dice", "none");
+    display(".roll-btn", "none");
+    display(".hold-btn", "none");
   } else {
     // 4. Switch Players
     playerSwitch();
@@ -92,22 +112,14 @@ var playerSwitch = () => {
   document.querySelector(".pCurrent-" + currentPlayer).classList.add("current"); // the block color
 
   // hide the dice
-  document.querySelector(".dice").style.display = "none";
+  display(".dice", "none");
 }
 
 // OVERLAY MENU
-var overlaySwitch = value => {
-  // eq. to : var overlaySwitch = function(value)
-  if (value) {
-    document.getElementById("overlay").style.display = "block";
-  } else {
-    document.getElementById("overlay").style.display = "none";
-  }
-}
 
 document.querySelector(".overlay-btn").addEventListener("click", () => {
-  overlaySwitch(1);
+  display("#overlay", "block");
 });
 document.querySelector("#overlay").addEventListener("click", () => {
-  overlaySwitch(0);
+  display("#overlay", "none");
 });
