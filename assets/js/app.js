@@ -25,7 +25,7 @@ var init = () => {
   // show buttons
   document.querySelector(".roll-btn").style.display = "block";
   document.querySelector(".hold-btn").style.display = "block";
-};
+}
 init();
 
 // EVENT LISTENERS
@@ -93,7 +93,7 @@ var playerSwitch = () => {
 
   // hide the dice
   document.querySelector(".dice").style.display = "none";
-};
+}
 
 // OVERLAY MENU
 var overlaySwitch = value => {
@@ -103,7 +103,7 @@ var overlaySwitch = value => {
   } else {
     document.getElementById("overlay").style.display = "none";
   }
-};
+}
 
 document.querySelector(".overlay-btn").addEventListener("click", () => {
   overlaySwitch(1);
